@@ -60,7 +60,7 @@ contract UniVoteChain is Ownable {
         emit VoteCreated(voteCount, _name, msg.sender);
         voteCount++;
 
-        uniVoteCoin.mint(msg.sender, 20 * 10**18); // 🎁 награда за создание голосования
+        uniVoteCoin.mint(msg.sender, 20 * 10**18);
     }
 
     function vote(uint256 _voteId, uint256 _optionIndex) external {
@@ -74,7 +74,7 @@ contract UniVoteChain is Ownable {
 
         v.hasVoted[msg.sender] = true;
         v.optionVotes[_optionIndex]++;
-        uniVoteCoin.mint(msg.sender, 10 * 10**18); // 🎁 награда за участие
+        uniVoteCoin.mint(msg.sender, 10 * 10**18); 
 
         emit Voted(_voteId, msg.sender, _optionIndex);
     }
@@ -86,7 +86,7 @@ contract UniVoteChain is Ownable {
         require(v.isActive, "Vote already stopped");
         v.isActive = false;
 
-        uniVoteCoin.mint(msg.sender, 5 * 10**18); // 🎁 награда за завершение голосования
+        uniVoteCoin.mint(msg.sender, 5 * 10**18); 
 
         emit VoteStopped(_voteId);
     }
